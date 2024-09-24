@@ -101,7 +101,7 @@
         \item $B \intersection \overline{A}$
         \item $B \times 2^{\Set{C}}$
         \item $D^{\card{C}}$
-        \item $\Set{D \intersection \Set{A}} \times (D \union \card{D})$
+        \item $\Set{D \intersection \Set{A}} \times (D \union \Set{\card{D}})$
     \end{subtasks}
     \end{multicols}
 
@@ -120,7 +120,7 @@
         \item $\Jaccard(A,B) = \Jaccard(B, A)$ и $\JaccardDist(A,B) = \JaccardDist(B, A)$.
         \item $\Jaccard(A,B) = 1$ и $\JaccardDist(A,B) = 0$ тогда и только тогда, когда $A = B$.
         \item $0 \leq \Jaccard(A,B) \leq 1$ и $0 \leq \JaccardDist(A,B) \leq 1$.
-        \item Для произвольных (необязательно конечных) множеств $A$, $B$ и~$C$ выполняется так называемое \emph{неравенство треугольника}\footnote{Из (a)-(c) и (e) следует, что $\JaccardDist$ является \href{https://en.wikipedia.org/wiki/Metric_space}{\emph{метрикой}}, что крайне интересно и полезно... \textit{для некоторых}.}:
+        \item Для произвольных множеств $A$, $B$ и~$C$ выполняется \emph{неравенство треугольника}\footnote{Из (a)-(c) и (e) следует, что $\JaccardDist$ является \href{https://en.wikipedia.org/wiki/Metric_space}{\emph{метрикой}}, что крайне интересно и полезно... \textit{для некоторых}.}:
         \[
             \JaccardDist(A,C) \leq \JaccardDist(A,B) + \JaccardDist(B,C)
         \]
@@ -179,9 +179,9 @@
         % \item Подмножество счётного множества.
         % \item Надмножество несчётного множества.
         \item Множество рациональных\footnote{Рациональное число можно представить в виде дроби $m / n$, где $m \in \Integer$ \--- целое, а $n \in \Natural$ \--- натуральное.} чисел $\Rational$.
-        \item Объединение \textit{счётного} числа счётных множеств.
         \item Булеан множества натуральных чисел $\powerset{\Natural}$.
         \item Множество всех функций вида $f : \Natural \to \Natural$.
+        \item Объединение \textit{счётного} числа счётных множеств.
         \item Множество действительных корней всех уравнений вида $ax^2 + bx + c = 0$ с целочисленными коэффициентами $a$, $b$ и~$c$.
     \end{subtasks}
 
@@ -192,7 +192,7 @@
         \item Если $A \subseteq B$ и $B \subseteq C$, то $A \subseteq C$.
         \item $\card{\powerset{A}} = 2^{\card{A}}$.
         \item $\card{\Complex} = \card{\Real}$, то есть множества комплексных и действительных чисел равномощны.
-        \item $\Pair{a,b} = \Pair{c,d} \iff (a = c) \land (b = d)$ при использовании определения пары по Куратовскому: $\Pair{x, y}_K = \Set{\Set{x}, \Set{x, y}}$.
+        \item $\Pair{a,b} = \Pair{c,d} \iff (a = c) \land (b = d)$ при использовании определения упорядоченной пары по Куратовскому: $\Pair{x, y}_K = \Set{\Set{x}, \Set{x, y}}$.
     \end{subtasks}
 
     % \item \ldots
