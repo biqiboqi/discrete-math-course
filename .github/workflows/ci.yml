@@ -1,10 +1,16 @@
-name: Build
+name: CI
 run-name: Render PDFs
 
 on:
   push:
     branches:
       - master
+    paths-ignore:
+      - .gitignore
+      - README*
+      - LICENSE
+      - .github/**
+      - "!.github/workflows/ci.yml"
   workflow_dispatch:
 
 jobs:
@@ -13,6 +19,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+        with:
+          cache-dependency-path: typst/requirements.typ
+
+      - run: rm -f typst/requirements.pdf
+      - run: typst --version
+      - run: typst compile typst/lec-flow.typ
+      - run: typst compile typst/lec-formal.typ
+      - run: mv typst/*.pdf .
 
       - name: Build LaTeX project and generate PDFs
         uses: xu-cheng/latex-action@v3
@@ -26,7 +43,7 @@ jobs:
           path: "*.pdf"
 
       - name: Upload PDFs as release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           body: Current state of PDFs
           name: Latest PDFs
@@ -39,7 +56,7 @@ jobs:
           mv *.pdf public/
 
       - name: Publish PDFs to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
